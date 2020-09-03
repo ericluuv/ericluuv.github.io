@@ -1,0 +1,40 @@
+body
+{
+    background-color: dimgrey;
+    /*background: linear-gradient(to right, red, blue);*/
+}
+
+.section-title
+{
+    color: beige;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#name-of-mod
+{
+    color: goldenrod;
+}
+
+#contact-info:hover
+{
+    color: greenyellow;
+}
+
+#github-link:link
+{
+    color: blue;
+}
+
+#github-link:visited
+{
+    color: red;
+}
+
+#demo-gif
+{
+    height: 300px;
+    width: 40%;
+    color: white;
+    border: 3px solid steelblue;
+    background-color: black;
+}
