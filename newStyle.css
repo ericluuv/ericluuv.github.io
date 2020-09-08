@@ -8,6 +8,7 @@ body
 {
     color: rgb(222,122,250);
     font-family: "Roboto Condensed";
+    text-align: center;
 }
 
 #name-of-mod
@@ -15,21 +16,8 @@ body
     color: rgb(200,0,250);
     font-family: "Source Sans Pro";
     font-size: 40px;
-}
-
-#contact-info:hover
-{
-    color: greenyellow;
-}
-
-#github-link:link
-{
-    color: blue;
-}
-
-#github-link:visited
-{
-    color: red;
+    font-weight: 100000;
+    text-align: center;
 }
 
 #demo-gif
@@ -39,12 +27,20 @@ body
     color: white;
     border: 3px solid steelblue;
     background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 h3 ~ p
 {
+    display: block;
     font-family: 'Source Sans Pro';
     color: rgb(200, 200, 200);
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
 }
+
 
 
