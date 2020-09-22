@@ -1,0 +1,83 @@
+body
+{
+    background-color:#2C2F33;
+}
+
+#instructions-title
+{
+    color: rgb(114, 137, 218);
+    font-family: "Bitter", sans-serif;
+    font-weight: 100;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2.5em;
+}
+
+.steps
+{
+    display: block;
+    color: rgb(100, 100, 250);
+    border-top: 3px solid #bbb;
+    font-weight: 100;
+    font-family: "Bitter", sans-serif;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    font-size: 1.6em;
+}
+
+.steps-content
+{
+    display: block;
+    color: rgb(250, 250, 250);
+    font-size: 1.05em;
+    font-family: "Alegreya Sans", sans-serif;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#button
+{
+    display: inline-block;
+    margin-top: 10px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: rgb(250, 250, 155);
+    font-size: 1.01em;
+}
+
+#path-troubleshoot
+{
+    display: none;
+}
+
+#path-img
+{
+    width: 800px;
+    height: 70%;
+}
+
+.code
+{
+    background-color: rgb(35, 39, 42);
+    font-family: "Anonymous Pro", monospace;
+    font-size: 0.95em;
+}
+
+.class
+{
+    color: rgb(0,200,255);
+}
+
+.comment
+{
+    color: rgb(20, 200, 100);
+}
+
+button:hover
+{
+    background-color: rgb(100,100,100);
+}
