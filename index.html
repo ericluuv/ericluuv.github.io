@@ -1,48 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
+    <script src = "indexScript.js"></script>
     <head>
-        <link rel = "stylesheet" type = "text/css" href = "newStyle.css">
+        <link rel="stylesheet" type="text/css" href="indexStyle.css">
         <link href='https://fonts.googleapis.com/css?family=Alegreya Sans' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-        <title>Ender Storage</title>
+        <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
+        <title>CMake Instructions</title>
     </head>
 
     <body>
-        <h1 id = "name-of-mod">Ender Storage</h1>
-        <div id = "demo-gif">TEMP PLACEHOLDER</div>
-        <h3 class = "section-title">MOD DESCRIPTION</h3>
-        <p>
-            Ender Storage is designed to have one block for the user to use, and functions just like a normal chest.
-            However, it also allows for items to be searched up and taken out dynamically.
-            This dramatically cuts down on the planning needed for item organization, while also allowing
-            a balanced solution to the vanilla problem.
-        </p>
-        <h3 class = "section-title">FEATURES</h3>
-        <p>
-            Two new blocks: The Storage Heart, and Obsidian Chests<br>
-            The Storage Heart works like a regular chest, 
-            but also allows searching of the items you currenty have.<br>
-            The Obsidian Chests are the actual storage parts of the mod, and
-            contain the same amount of storage capacity as a regular chest.
-            You cannot actually use these Obsidian Chests without the Storage Heart.
-        </p>
+        <h1 id = "instructions-title">CMake with Visual Studio Code</h1>
+        <h3 class = "steps">Step 1: Installation </h3>
+        <div class = "steps-content">
+            First off, you're going to need CMake itself which can be found <a href="https://cmake.org/"
+            target = _blank>here.</a>
+            <p>
+                After installation, you can make sure CMake is installed by typing in this command into the terminal: cmake --version.
+                You actually won't be using this application directly, it'll be used by the extensions we'll download for Visual Studio Code.
+            </p>
 
-        <h3 class = "section-title">CRAFTING</h3>
-        <p>
-            TBD
-        </p>
+            <p>
+                Links for the needed extensions are <a href="https://marketplace.visualstudio.com/items?itemName=twxs.cmake" target = _blank>here</a> and <a 
+                href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools&ssr=false#overview"
+                target = _blank>here</a>
+                . CMake allows language support for CMake in VSCode, while CMake tools allows for it to be used while in VSCode itself instead
+                of using its more complicated UI.
+            </p>
+            With everything installed we can start to actually make a CMake file and have it compile a C++ program.
+        </div>
 
-        <h3 class = "section-title">TO ADD</h3>
+        <h3 class = "steps">Step 2: Making a simple program with CMake</h3>
+        <div class = "steps-content">
+        CMake really shines when making programs that require multiple header files or unit testing, but we'll start off by using it to compile a simple program.<br>
+        <button id = "button" onclick="pathClick()">Having issues with CMake path?</button><br>
+        <div id = "path-troubleshoot">
         <p>
-            everything
+            If you get some error in VSCode talking about a path issue, you'll have to manually put in the path to your CMake in the extension.
+            Mine was at Applications/CMake.app/Contents/bin/cmake (For MacOS). Click the gear icon in VSCode at the bottom left, and go to settings.
+            From there type in path, and you should see CMake tools. Click on that and add in the path to your CMake application.
         </p>
+        <img src = "images/path.png" alt = "NOT WORKING" id = "path-img"></img>
+        </div>
+            <p>
+                Before creating our CMakeLists.txt file, we'll have to structure our files properly. In this example there'll be four sub-directories: bin, include, src, and build.
+                Bin will hold our executable, include will have our header files, and src will hold the source files. We actually won't make the build folder ourselves; CMake will create it
+                as it builds our program.
+                <img src="images/directories.png" alt="NOT WORKING" id="directories-png"></img><br>
+                After doing this create the CMakeLists.txt file in the working directory.
+            </p>
 
-        <h3 class = "section-title">CONTACT</h3>
-        <p>
-            I'll try to respond to emails as I can, but once I get this mod ready as I want
-            I probably won't add too much on, just keep it updated and bug free as possible.
-        </p>
+            <p>
+                Theres a couple things to note as CMake initializes and configures your workspace.
+                <ol>
+                    <li>First, if VSCode hasn't detected that you're making a CMake file, reload the window (Commands+shift+P or Ctrl+Shift+P).</li>
+                    <li>Second, it'll ask you to select a kit, which will be whatever C++ compiler you want to use. If you don't see any you either don't have a C++ compiler installed</li>
+                    or VSCode is having issues with finding your compiler.
+                    <li>Third, make sure it says CMake: [Debug]: Ready at the bottom. This will help fix any issues that may arise when using CMake.</li>
+                </ol>
+            </p>
 
+            <p>
+                With everything in place we can start to edit the CMakeLists.txt.
+                Here's the code for a very basic CMakeLists.txt file that will compile our C++ files.
+            </p>
+
+            <p class = "code">
+                <span class = "class">cmake_minimum_required</span>(VERSION 3.8) 
+                <span class = "comment"> #REQUIRED, basically minumum version of CMake required for your own use</span><br><br>
+                <span class = "class">project</span>(CMakeSingleFolder C CXX) 
+                <span class = "comment">#REQUIRED, sets the project
+                name to first argument, and C & CXX specify what languages are #supported.</span>
+                <br><br>
+                <span class = "class">set</span>(CMAKE_C_STANDARD 99)<br>
+                <span class = "class">set</span>(CMAKE_CXX_STANDARD 11)<span class = "comment"> #Makes sure the compiler 
+                knows what to link and include when compiling based on a certain c++ standard</span><br>
+                <span class = "class">set</span>(CMAKE_POSITION_INDEPENDENT_CODE ON) <span class = "comment">
+                #Makes sure the compiler doesn't fall back to an eariler version of c++ for linking #standards</span><br><br>
+                <span class = "class">set</span>(EXECUTABLE_OUTPUT_PATH /Users/ericluu/Desktop/CMakeTutorial/bin)
+                <span class = "comment"> #Specifies the path for the executable to be put.</span><br>
+                <span class = "comment">#Unfortunately putting bin or /bin will make a folder inside of the build subdirectory that CMake will create.
+                In order to have #to output to the bin folder the absolute path is needed, so you'll need to change that if you want it in the bin folder, or
+                just #leave this line out to have the executable be made in the build folder.</span>
+                <br><br>
+                <span class = "class">include_directories</span>(include)
+                <span class = "comment"> #takes in a relative/absolute path to include files from.class 
+                Here we take them from the #subdirectory "include".</span><br><br>
+                <span class = "class">file</span>(GLOB Sources "src/*.cpp") </span>
+                <span class = "comment">#Puts all cpp files from the "src" subdirectory into a subdirectory
+                called "Sources."</span><br><br>
+                <span class = "class">add_executable</span>(main ${Sources}) 
+                <span class = "comment">#Makes the executable, which is called main. We also put in
+                our sources files from the variables #Sources.</span>
+            </p>
+
+            <p>
+                In addition to this CMakeLists.txt file, I have created example header and source files in the appropriate folders, which when run will
+                print the first letters of whatever message you put into the console. To build it simply click the Build button at the bottom of VSCode.
+                You can then run it by pressing the play button. If you make edits to any of the files you can click the Build and Play buttons as you wish,
+                allowing for fast compilation of C++ files.
+            </p>
+        </div>
     </body>
 </html>
