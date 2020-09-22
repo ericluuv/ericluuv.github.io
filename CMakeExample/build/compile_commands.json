@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/Users/ericluu/Desktop/CMakeTutorial/build",
+  "command": "/usr/bin/clang++  -I/Users/ericluu/Desktop/CMakeTutorial/include -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE -std=gnu++11 -o CMakeFiles/main.dir/src/main.cpp.o -c /Users/ericluu/Desktop/CMakeTutorial/src/main.cpp",
+  "file": "/Users/ericluu/Desktop/CMakeTutorial/src/main.cpp"
+},
+{
+  "directory": "/Users/ericluu/Desktop/CMakeTutorial/build",
+  "command": "/usr/bin/clang++  -I/Users/ericluu/Desktop/CMakeTutorial/include -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIE -std=gnu++11 -o CMakeFiles/main.dir/src/testing.cpp.o -c /Users/ericluu/Desktop/CMakeTutorial/src/testing.cpp",
+  "file": "/Users/ericluu/Desktop/CMakeTutorial/src/testing.cpp"
+}
+]

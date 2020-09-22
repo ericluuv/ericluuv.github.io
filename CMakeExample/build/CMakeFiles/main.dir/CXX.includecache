@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/testing.hpp
+string
+-
+
+/Users/ericluu/Desktop/CMakeTutorial/src/main.cpp
+testing.hpp
+/Users/ericluu/Desktop/CMakeTutorial/src/testing.hpp
+string
+-
+iostream
+-
+
