@@ -5,7 +5,8 @@ body
 
 #instructions-title
 {
-    color: rgb(114, 137, 218);
+    /*color: rgb(114, 137, 218);*/
+    color: rgb(100, 140, 250);
     font-family: "Bitter", sans-serif;
     font-weight: 100;
     width: 80%;
@@ -17,7 +18,7 @@ body
 .steps
 {
     display: block;
-    color: rgb(100, 100, 250);
+    color: rgb(100, 140, 250);
     border-top: 3px solid #bbb;
     font-weight: 100;
     font-family: "Bitter", sans-serif;
@@ -80,4 +81,14 @@ body
 button:hover
 {
     background-color: rgb(100,100,100);
+}
+
+a:link
+{
+    color: rgb(0,200,250);
+}
+
+a:visited
+{
+    color: rgb(200,200,250);
 }
