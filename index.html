@@ -79,11 +79,9 @@
                 knows what to link and include when compiling based on a certain c++ standard</span><br>
                 <span class = "class">set</span>(CMAKE_POSITION_INDEPENDENT_CODE ON) <span class = "comment">
                 #Makes sure the compiler doesn't fall back to an eariler version of c++ for linking #standards</span><br><br>
-                <span class = "class">set</span>(EXECUTABLE_OUTPUT_PATH /Users/ericluu/Desktop/CMakeTutorial/bin)
+                <span class = "class">set</span>(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
                 <span class = "comment"> #Specifies the path for the executable to be put.</span><br>
-                <span class = "comment">#Unfortunately putting bin or /bin will make a folder inside of the build subdirectory that CMake will create.
-                In order to have #to output to the bin folder the absolute path is needed, so you'll need to change that if you want it in the bin folder, or
-                just #leave this line out to have the executable be made in the build folder.</span>
+                <span class = "comment">#${CMAKE_SOURCE_DIR} is the directory where the CMakeLists.txt is being run.</span>
                 <br><br>
                 <span class = "class">include_directories</span>(include)
                 <span class = "comment"> #takes in a relative/absolute path to include files from.class 
@@ -100,10 +98,16 @@
                 In addition to this CMakeLists.txt file, I have created example header and source files in the appropriate folders, which when run will
                 print the first letters of whatever message you put into the console. To build it simply click the Build button at the bottom of VSCode.
                 You can then run it by pressing the play button. If you make edits to any of the files you can click the Build and Play buttons as you wish,
-                allowing for fast compilation of C++ files.<br>
+                allowing for fast compilation of C++ files.<br><br>
 
                 Download link for this example found <a href="https://github.com/ericluuv/CMakeExample.git" target=_blank>here</a>.
-
+                <br><br>
+                One thing to note about GLOB, it's not technically recommended by the CMake team because normally, CMake doesn't know to rebuild your libraries/projects if you don't modify the
+                CMakeLists.txt itself. <br>
+                This can be problemental if one were to remove a source file from a library and CMake doesn't rebuild the library, as the program run with fatal errors. <br> 
+                However, since we're using an IDE that integrates CMake, it will automatically rebuild the necessary components when we modify code, even outside CMakeLists files.<br> 
+                Therefore GLOB is fine for our use, but for larger projects GLOB is not recommended, instead the laborous task of adding teach source file to the list is the safer practice.
+                <br>
             </p>
         </div>
     </body>
